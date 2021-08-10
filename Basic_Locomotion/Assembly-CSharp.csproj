@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{173FAFE2-273D-2B24-3226-5C195618C9D7}</ProjectGuid>
+    <ProjectGuid>{6B9D60F6-0BE0-9416-0BFA-2DEC0D8CA585}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Jammo-Character\Scripts\PlayerMovementWithCharacterController.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovementWithCharacterController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
