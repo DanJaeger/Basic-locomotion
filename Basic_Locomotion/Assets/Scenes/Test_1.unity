@@ -406,6 +406,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jammo_Player_CharacterController
       objectReference: {fileID: 0}
+    - target: {fileID: 337887980931795866, guid: 4511c771e8ea10c48b6712698891c4be, type: 3}
+      propertyPath: maxJumpTime
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 337887980931795866, guid: 4511c771e8ea10c48b6712698891c4be, type: 3}
+      propertyPath: maxJumpHeight
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3669081902507538826, guid: 4511c771e8ea10c48b6712698891c4be, type: 3}
       propertyPath: m_RootOrder
       value: 2
