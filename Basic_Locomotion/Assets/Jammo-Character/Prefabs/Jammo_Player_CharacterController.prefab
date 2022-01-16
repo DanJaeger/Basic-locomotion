@@ -103,6 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3669081902507538826}
   - component: {fileID: 6656655932435600624}
+  - component: {fileID: 6775430400197091712}
   - component: {fileID: 8615815180894817614}
   - component: {fileID: 337887980931795866}
   m_Layer: 0
@@ -171,6 +172,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &6775430400197091712
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337887980931795865}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!143 &8615815180894817614
 CharacterController:
   m_ObjectHideFlags: 0
@@ -202,6 +217,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   holdJump: 0
+  maxJumpHeight: 2
+  maxJumpTime: 0.7
 --- !u!1 &396470715295119040
 GameObject:
   m_ObjectHideFlags: 0

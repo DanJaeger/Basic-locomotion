@@ -26,6 +26,8 @@ public class PlayerMovementWithCharacterController : MonoBehaviour
 
     #region Jump Variables
     [SerializeField] bool holdJump = false;
+    [SerializeField] LayerMask groundLayer;
+    float distanceToGround = 0.1f;
 
     float gravity = -9.8f;
     float groundedGravity = -0.05f;
@@ -174,13 +176,4 @@ public class PlayerMovementWithCharacterController : MonoBehaviour
         anim.SetBool(isRunningHash, isRunning);
         anim.SetBool(isJumpingHash, isJumping);
     }
-
-    /*bool IsGrounded() In case you need it
-    {
-        Vector3 capsulebottom = new Vector3(col.bounds.center.x, col.bounds.min.y, col.bounds.center.z);
-        bool grounded = Physics.CheckCapsule(col.bounds.center, capsulebottom, distanceToGround, groundLayer,
-            QueryTriggerInteraction.Ignore);
-        return grounded;
-    }*/
-
 }
