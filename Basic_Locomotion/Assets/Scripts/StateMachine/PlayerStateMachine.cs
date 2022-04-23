@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerStateMachine : MonoBehaviour
 {
     #region Components
     CharacterController _characterController;
     Animator _anim;
+    PlayerInput _playerInput;
     #endregion
 
     #region Movement Variables
@@ -25,8 +27,6 @@ public class PlayerStateMachine : MonoBehaviour
 
     #region Jump Variables
     [SerializeField] bool _holdJump = false;
-    [SerializeField] LayerMask _groundLayer;
-    float _distanceToGround = 0.1f;
 
     float _gravity = -9.8f;
 
@@ -78,7 +78,9 @@ public class PlayerStateMachine : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _anim = GetComponent<Animator>();
+        _playerInput = new PlayerInput();
 
+        SetupInput();
         SetupJumpVariables();
         SetupAnimationHash();
 
@@ -105,23 +107,40 @@ public class PlayerStateMachine : MonoBehaviour
     }
     private void Update()
     {
-        HandleInput();
         HandleRotation();
-        _currentState.UpdateStates(); 
-        _characterController.Move(_appliedMovement * Time.deltaTime);
-    }
-    void HandleInput()
-    {
-        _currentMovementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        _isJumpPressed = Input.GetKey(KeyCode.Space);
-        _currentMovementInput.Normalize();
-        _currentMovement = new Vector3(_currentMovementInput.x, _currentMovement.y, _currentMovementInput.y);
 
-        _isMovementPressed = (_currentMovementInput.x != 0 || _currentMovementInput.y != 0);
-        _isRunPressed = Input.GetKey(KeyCode.LeftShift);
+        _currentState.UpdateStates();
 
         _appliedMovement.x = _currentMovement.x * _currentSpeed;
         _appliedMovement.z = _currentMovement.z * _currentSpeed;
+        _characterController.Move(_appliedMovement * Time.deltaTime);
+    }
+    void SetupInput()
+    {
+        _playerInput.CharacterControls.Move.started += OnMovementInput;
+        _playerInput.CharacterControls.Move.canceled += OnMovementInput;
+        _playerInput.CharacterControls.Move.performed += OnMovementInput;
+
+        _playerInput.CharacterControls.Run.started += OnRunInput;
+        _playerInput.CharacterControls.Run.canceled += OnRunInput;
+
+        _playerInput.CharacterControls.Jump.started += OnJumpInput;
+        _playerInput.CharacterControls.Jump.canceled += OnJumpInput;
+    }
+    void OnMovementInput(InputAction.CallbackContext context)
+    {
+        _currentMovementInput = context.ReadValue<Vector2>();
+        _isMovementPressed = _currentMovementInput.x != 0 || _currentMovementInput.y != 0;
+        _currentMovement.x = _currentMovementInput.x; 
+        _currentMovement.z = _currentMovementInput.y;
+    }
+    void OnJumpInput(InputAction.CallbackContext context)
+    {
+        _isJumpPressed = context.ReadValueAsButton();
+    }
+    void OnRunInput(InputAction.CallbackContext context)
+    {
+        _isRunPressed = context.ReadValueAsButton();
     }
     void HandleRotation()
     {
@@ -137,5 +156,13 @@ public class PlayerStateMachine : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
             transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, _rotationFactorPerFrame * Time.deltaTime);
         }
+    }
+    private void OnEnable()
+    {
+        _playerInput.CharacterControls.Enable();
+    }
+    private void OnDisable()
+    {
+        _playerInput.CharacterControls.Disable();
     }
 }

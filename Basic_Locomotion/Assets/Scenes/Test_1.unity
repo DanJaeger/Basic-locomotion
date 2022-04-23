@@ -560,7 +560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 337887980931795865, guid: 4511c771e8ea10c48b6712698891c4be, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 337887980931795866, guid: 4511c771e8ea10c48b6712698891c4be, type: 3}
       propertyPath: maxJumpTime
@@ -633,7 +633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 109136003872031752, guid: 3bacb2232d0ead54182cf3e8edf8948e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 109136003872031758, guid: 3bacb2232d0ead54182cf3e8edf8948e, type: 3}
       propertyPath: m_IsKinematic
