@@ -106,7 +106,7 @@ public class PlayerMovementWithCharacterController : MonoBehaviour
         }
         appliedMovement.x = currentMovement.x * currentSpeed;
         appliedMovement.z = currentMovement.z * currentSpeed;
-        characterController.Move(appliedMovement * Time.deltaTime);
+        characterController.Move(appliedMovement *Time.deltaTime);
         #endregion
 
         HandleGravity();

@@ -53,8 +53,18 @@
     <UnityVersion>2020.3.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\StateMachine\PlayerStateMachine.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerIdleState.cs" />
     <Compile Include="Assets\Scripts\PlayerMovementWithCharacterController.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerJumpState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerRunState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerGroundedState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerStateFactory.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerBaseState.cs" />
     <Compile Include="Assets\Scripts\PlayerMovementWithRigidbody.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerWalkState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerFallState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\IRootState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -278,6 +288,9 @@
     </Reference>
     <Reference Include="UnityEditor.UnityConnectModule">
       <HintPath>C:\Program Files\Unity\Editor\Data\Managed\UnityEngine\UnityEditor.UnityConnectModule.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <HintPath>Library\PackageCache\com.unity.connect.share@4.2.3\Plugins\System.IO.Compression.FileSystem.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>
@@ -629,6 +642,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Unity.InternalAPIEditorBridgeDev.001.csproj">
+      <Project>{7630FC89-2421-01A5-7061-A8DC8E387081}</Project>
+      <Name>Unity.InternalAPIEditorBridgeDev.001</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Recorder.Editor.csproj">
       <Project>{55D7C081-985D-8EC3-7F61-0B9DFF076A67}</Project>
       <Name>Unity.Recorder.Editor</Name>
@@ -677,6 +694,10 @@
       <Project>{913524DD-847E-F6DD-D5C1-4291933C4188}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.Play.Publisher.Editor.csproj">
+      <Project>{61B7B479-3BB9-CF1B-E185-271E3304BD42}</Project>
+      <Name>Unity.Play.Publisher.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.Rider.Editor.csproj">
       <Project>{04E0B516-DFCE-8B80-7441-C871A8621294}</Project>
       <Name>Unity.Rider.Editor</Name>
@@ -688,6 +709,10 @@
     <ProjectReference Include="Unity.PlasticSCM.Editor.csproj">
       <Project>{5DE17654-FD67-24D8-D6AE-B0E9EFA639BF}</Project>
       <Name>Unity.PlasticSCM.Editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.EditorCoroutines.Editor.csproj">
+      <Project>{9A8A9545-1A48-DA83-AC85-E2CEF2BE6E19}</Project>
+      <Name>Unity.EditorCoroutines.Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Recorder.csproj">
       <Project>{36D1E4BC-1093-D904-EBBA-398FE52AC938}</Project>

@@ -53,8 +53,18 @@
     <UnityVersion>2020.3.14f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\StateMachine\PlayerStateMachine.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerIdleState.cs" />
     <Compile Include="Assets\Scripts\PlayerMovementWithCharacterController.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerJumpState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerRunState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerGroundedState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerStateFactory.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerBaseState.cs" />
     <Compile Include="Assets\Scripts\PlayerMovementWithRigidbody.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerWalkState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\PlayerFallState.cs" />
+    <Compile Include="Assets\Scripts\StateMachine\IRootState.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -252,6 +262,9 @@
     <Reference Include="UnityEngine.XRModule">
       <HintPath>C:\Program Files\Unity\Editor\Data\PlaybackEngines\WindowsStandaloneSupport\Variations\mono\Managed\UnityEngine.XRModule.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.InternalAPIEditorBridgeDev.001">
+      <HintPath>Library\ScriptAssemblies\Unity.InternalAPIEditorBridgeDev.001.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Recorder.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Recorder.Editor.dll</HintPath>
     </Reference>
@@ -276,14 +289,23 @@
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Play.Publisher.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.Play.Publisher.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Rider.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PlasticSCM.Editor">
       <HintPath>Library\ScriptAssemblies\Unity.PlasticSCM.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.EditorCoroutines.Editor.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\AOT\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem">
+      <HintPath>Library\PackageCache\com.unity.connect.share@4.2.3\Plugins\System.IO.Compression.FileSystem.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
